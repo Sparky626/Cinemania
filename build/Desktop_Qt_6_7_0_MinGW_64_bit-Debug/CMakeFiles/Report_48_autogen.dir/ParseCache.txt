@@ -352,7 +352,7 @@ C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/cin
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
  mdp:C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Report_48_autogen/moc_predefs.h
  mdp:C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/cinemania.h
-C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/main.cpp
+ mdp:C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/movie.h
 C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/listmaker.h
  mmc:Q_OBJECT
  mdp:C:/Qt/6.7.0/mingw_64/include/QtCore/q20functional.h
@@ -705,6 +705,8 @@ C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/lis
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
  mdp:C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Report_48_autogen/moc_predefs.h
  mdp:C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/listmaker.h
+ mdp:C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/movie.h
+C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/main.cpp
 C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/cinemania.cpp
  uic:./ui_cinemania.h
 C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/listmaker.cpp

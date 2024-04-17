@@ -1,6 +1,6 @@
 #ifndef CINEMANIA_H
 #define CINEMANIA_H
-
+#include "movie.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -14,11 +14,14 @@ class CineMania : public QMainWindow
     Q_OBJECT
 
 public:
-    CineMania(QWidget *parent = nullptr);
+    vector<movie> movList = {};
+    CineMania(QWidget *parent = nullptr, vector<movie> movList = {});
     ~CineMania();
 
 private slots:
     void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::CineMania *ui;
