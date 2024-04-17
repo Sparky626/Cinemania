@@ -17,6 +17,9 @@ public:
     CineMania(QWidget *parent = nullptr);
     ~CineMania();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::CineMania *ui;
 };
