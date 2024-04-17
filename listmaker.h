@@ -12,7 +12,7 @@ class ListMaker : public QDialog
     Q_OBJECT
 
 public:
-    explicit ListMaker(QWidget *parent = nullptr, vector<movie> movList = {});
+    explicit ListMaker(QWidget *parent = nullptr, movie movArr[] = {}, int listSize = 0);
     ~ListMaker();
 
 private:

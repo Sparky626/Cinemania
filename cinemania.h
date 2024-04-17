@@ -14,8 +14,9 @@ class CineMania : public QMainWindow
     Q_OBJECT
 
 public:
-    vector<movie> movList = {};
-    CineMania(QWidget *parent = nullptr, vector<movie> movList = {});
+    movie* movArr = {};
+    int listSize = 0;
+    CineMania(QWidget *parent = nullptr, movie movArr[] = {}, int listSize = 0);
     ~CineMania();
 
 private slots:

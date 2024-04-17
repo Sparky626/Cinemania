@@ -44,8 +44,10 @@ int main(int argc, char *argv[])
         movieList.push_back(CurrentMovie);
     }
     MyReadFile.close();
+    movie* moviesArr = new movie[movieList.size()];
+    copy(movieList.begin(), movieList.end(), moviesArr);
     QApplication a(argc, argv);
-    CineMania w(nullptr, movieList);
+    CineMania w(nullptr, moviesArr, movieList.size());
     w.show();
     return a.exec();
 }

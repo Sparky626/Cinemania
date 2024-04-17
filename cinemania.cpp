@@ -3,14 +3,15 @@
 #include "listmaker.h"
 #include "movie.h"
 #include <chrono>
-CineMania::CineMania(QWidget *parent, vector<movie> movList)
+CineMania::CineMania(QWidget *parent, movie movArr[], int listSize)
     : QMainWindow(parent)
     , ui(new Ui::CineMania)
 {
     ui->setupUi(this);
-    this->movList = movList;
-    for (movie m : movList){
-        ui->listWidget->addItem(QString::fromStdString(m.getTitle()));
+    this->movArr = movArr;
+    this->listSize = listSize;
+    for (size_t i = 0; i < listSize; i++) {
+            ui->listWidget->addItem(QString::fromStdString(movArr[i].getTitle()));
     }
 
 }
@@ -19,99 +20,270 @@ CineMania::~CineMania()
 {
     delete ui;
 }
-
-void CineMania::on_pushButton_clicked()
-{
-    this->hide();
-    ListMaker listmaker(nullptr, movList);
-    listmaker.setModal(true);
-    listmaker.exec();
-}
 void swap_abc(movie& a, movie& b) {
     movie temp = a;
     a = b;
     b = temp;
 }
 
-vector<movie>::iterator partition(vector<movie>& arr, vector<movie>::iterator low, vector<movie>::iterator high) {
-    string pivotGenre = high->getGenre();
-    string pivotTitle = high->getTitle();
+// quicksort and partition functions inspired from geeks for geeks
+int partitionGenre (movie arr[], int low, int high) {
+    string pivotGenre = arr[high].getGenre();
+    string pivotTitle = arr[high].getTitle();
 
-    auto i = low;
+    int i = (low - 1);
 
-    for (auto j = low; j != high; j++) {
-        if (j->getGenre() < pivotGenre || (j->getGenre() == pivotGenre && j->getTitle() < pivotTitle)) {
-            swap_abc(*i, *j);
+    for (int j = low; j <=high; j++) {
+        if (arr[j].getGenre() < pivotGenre || (arr[j].getGenre() == pivotGenre && arr[j].getTitle() < pivotTitle)) {
             i++;
+            swap_abc(arr[i], arr[j]);
         }
     }
-    swap_abc(*i, *high);
-    return i;
+    swap_abc(arr[i+1], arr[high]);
+    return (i+1);
 }
 
-void quickSort(vector<movie>& arr, vector<movie>::iterator low, vector<movie>::iterator high) {
+int partitionRating (movie arr[], int low, int high) {
+    string pivotRating = arr[high].getRating();
+    string pivotTitle = arr[high].getTitle();
+
+    int i = (low - 1);
+
+    for (int j = low; j <=high; j++) {
+        if (arr[j].getRating() > pivotRating || (arr[j].getRating() == pivotRating && arr[j].getTitle() < pivotTitle)) {
+            i++;
+            swap_abc(arr[i], arr[j]);
+        }
+    }
+    swap_abc(arr[i+1], arr[high]);
+    return (i+1);
+}
+
+int partitionTitle (movie arr[], int low, int high) {
+    string pivotTitle = arr[high].getTitle();
+
+    int i = (low - 1);
+
+    for (int j = low; j <=high; j++) {
+        if (arr[j].getTitle() < pivotTitle) {
+            i++;
+            swap_abc(arr[i], arr[j]);
+        }
+    }
+    swap_abc(arr[i+1], arr[high]);
+    return (i+1);
+}
+
+void quickSortGenre (movie arr[], int low, int high) {
     if (low < high) {
-        auto pi = partition(arr, low, high);
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
+        int pi = partitionGenre(arr, low, high);
+        quickSortGenre(arr, low, pi-1);
+        quickSortGenre(arr,pi+1,high);
     }
 }
 
-void merge(vector<movie>& arr, vector<movie>& temp, int const left, int const mid, int const right) {
-    int indexSubArr1 = left;
-    int indexSubArr2 = mid + 1;
+void quickSortRating (movie arr[], int low, int high) {
+    if (low < high) {
+        int pi = partitionRating(arr, low, high);
+        quickSortRating(arr, low, pi - 1);
+        quickSortRating(arr,pi + 1, high);
+    }
+}
+
+void quickSortTitle (movie arr[], int low, int high) {
+    if (low < high) {
+        int pi = partitionTitle(arr, low, high);
+        quickSortTitle(arr, low, pi-1);
+        quickSortTitle(arr,pi+1,high);
+    }
+}
+
+void mergeGenre(movie arr[], int const left, int const mid, int const right) {
+    int const subArr1 = mid - left + 1;
+    int const subArr2 = right - mid;
+
+    auto *leftArr = new movie[subArr1], *rightArr = new movie[subArr2];
+
+    for(auto i = 0; i < subArr1; i++) {
+        leftArr[i] = arr[left+i];
+    }
+    for (auto j = 0; j < subArr2; j++) {
+        rightArr[j] = arr[mid + 1 + j];
+    }
+
+    auto indexSubArr1 = 0, indexSubArr2 = 0;
     int indexMergedArr = left;
 
-    while (indexSubArr1 <= mid && indexSubArr2 <= right) {
-        if (arr[indexSubArr1].getGenre() < arr[indexSubArr2].getGenre() ||
-            (arr[indexSubArr1].getGenre() == arr[indexSubArr2].getGenre() &&
-             arr[indexSubArr1].getTitle() < arr[indexSubArr2].getTitle())) {
-            temp[indexMergedArr] = arr[indexSubArr1];
+    while (indexSubArr1 < subArr1 && indexSubArr2 < subArr2) {
+        if (leftArr[indexSubArr1].getGenre() < rightArr[indexSubArr2].getGenre() ||
+            (leftArr[indexSubArr1].getGenre() == rightArr[indexSubArr2].getGenre() &&
+             leftArr[indexSubArr1].getTitle() < rightArr[indexSubArr2].getTitle())) {
+            arr[indexMergedArr] = leftArr[indexSubArr1];
             indexSubArr1++;
-        } else {
-            temp[indexMergedArr] = arr[indexSubArr2];
+        }
+        else {
+            arr[indexMergedArr] = rightArr[indexSubArr2];
             indexSubArr2++;
         }
         indexMergedArr++;
     }
 
-    while (indexSubArr1 <= mid) {
-        temp[indexMergedArr] = arr[indexSubArr1];
-        indexMergedArr++;
+    while (indexSubArr1 < subArr1) {
+        arr[indexMergedArr] = leftArr[indexSubArr1];
         indexSubArr1++;
-    }
-
-    while (indexSubArr2 <= right) {
-        temp[indexMergedArr] = arr[indexSubArr2];
         indexMergedArr++;
+    }
+
+    while (indexSubArr2 < subArr2) {
+        arr[indexMergedArr] = rightArr[indexSubArr2];
         indexSubArr2++;
+        indexMergedArr++;
     }
 
-    for (int i = left; i <= right; i++) {
-        arr[i] = temp[i];
-    }
+    delete[] leftArr;
+    delete[] rightArr;
+
 }
 
-void mergeSort(vector<movie>& arr, vector<movie>& temp, int const begin, int const end) {
-    if (begin < end) {
-        int mid = begin + (end - begin) / 2;
-        mergeSort(arr, temp, begin, mid);
-        mergeSort(arr, temp, mid + 1, end);
-        merge(arr, temp, begin, mid, end);
+void mergeRating(movie arr[], int const left, int const mid, int const right) {
+    int const subArr1 = mid - left + 1;
+    int const subArr2 = right - mid;
+
+    auto *leftArr = new movie[subArr1], *rightArr = new movie[subArr2];
+
+    for(auto i = 0; i < subArr1; i++) {
+        leftArr[i] = arr[left+i];
     }
+    for (auto j = 0; j < subArr2; j++) {
+        rightArr[j] = arr[mid + 1 + j];
+    }
+
+    auto indexSubArr1 = 0, indexSubArr2 = 0;
+    int indexMergedArr = left;
+
+    while (indexSubArr1 < subArr1 && indexSubArr2 < subArr2) {
+        if (leftArr[indexSubArr1].getRating() > rightArr[indexSubArr2].getRating() ||
+            (leftArr[indexSubArr1].getRating() == rightArr[indexSubArr2].getRating() &&
+             leftArr[indexSubArr1].getTitle() < rightArr[indexSubArr2].getTitle())) {
+            arr[indexMergedArr] = leftArr[indexSubArr1];
+            indexSubArr1++;
+        }
+        else {
+            arr[indexMergedArr] = rightArr[indexSubArr2];
+            indexSubArr2++;
+        }
+        indexMergedArr++;
+    }
+
+    while (indexSubArr1 < subArr1) {
+        arr[indexMergedArr] = leftArr[indexSubArr1];
+        indexSubArr1++;
+        indexMergedArr++;
+    }
+
+    while (indexSubArr2 < subArr2) {
+        arr[indexMergedArr] = rightArr[indexSubArr2];
+        indexSubArr2++;
+        indexMergedArr++;
+    }
+
+    delete[] leftArr;
+    delete[] rightArr;
 }
+
+void mergeTitle(movie arr[], int const left, int const mid, int const right) {
+    int const subArr1 = mid - left + 1;
+    int const subArr2 = right - mid;
+
+    auto *leftArr = new movie[subArr1], *rightArr = new movie[subArr2];
+
+    for(auto i = 0; i < subArr1; i++) {
+        leftArr[i] = arr[left+i];
+    }
+    for (auto j = 0; j < subArr2; j++) {
+        rightArr[j] = arr[mid + 1 + j];
+    }
+
+    auto indexSubArr1 = 0, indexSubArr2 = 0;
+    int indexMergedArr = left;
+
+    while (indexSubArr1 < subArr1 && indexSubArr2 < subArr2) {
+        if (leftArr[indexSubArr1].getTitle() < rightArr[indexSubArr2].getTitle()) {
+            arr[indexMergedArr] = leftArr[indexSubArr1];
+            indexSubArr1++;
+        }
+        else {
+            arr[indexMergedArr] = rightArr[indexSubArr2];
+            indexSubArr2++;
+        }
+        indexMergedArr++;
+    }
+
+    while (indexSubArr1 < subArr1) {
+        arr[indexMergedArr] = leftArr[indexSubArr1];
+        indexSubArr1++;
+        indexMergedArr++;
+    }
+
+    while (indexSubArr2 < subArr2) {
+        arr[indexMergedArr] = rightArr[indexSubArr2];
+        indexSubArr2++;
+        indexMergedArr++;
+    }
+
+    delete[] leftArr;
+    delete[] rightArr;
+
+}
+
+void mergeSortGenre (movie arr[], int const begin, int const end) {
+    if (begin >= end) {
+        return;
+    }
+    int mid = begin + (end - begin) / 2;
+    mergeSortGenre(arr, begin, mid);
+    mergeSortGenre(arr, mid + 1, end);
+    mergeGenre(arr, begin, mid, end);
+}
+
+void mergeSortRating (movie arr[], int const begin, int const end) {
+    if (begin >= end) {
+        return;
+    }
+    int mid = begin + (end - begin) / 2;
+    mergeSortRating(arr, begin, mid);
+    mergeSortRating(arr, mid + 1, end);
+    mergeRating(arr, begin, mid, end);
+}
+
+void mergeSortTitle (movie arr[], int const begin, int const end) {
+    if (begin >= end) {
+        return;
+    }
+    int mid = begin + (end - begin) / 2;
+    mergeSortTitle(arr, begin, mid);
+    mergeSortTitle(arr, mid + 1, end);
+    mergeTitle(arr, begin, mid, end);
+}
+void CineMania::on_pushButton_clicked()
+{
+    this->hide();
+    ListMaker listmaker(nullptr, movArr, listSize);
+    listmaker.setModal(true);
+    listmaker.exec();
+}
+
 
 void CineMania::on_pushButton_2_clicked()
 {
     chrono::time_point<std::chrono::system_clock> start, end;
     ui->listWidget->clear();
-    vector<movie> temp(movList.size());
     start = chrono::system_clock::now();
-    mergeSort(movList, temp, 0, movList.size()-1);
+    mergeSortGenre(movArr, 0, listSize-1);
     end = chrono::system_clock::now();
     chrono::duration<double> elapsed_seconds = end - start;
-    for (movie m : movList){
-        ui->listWidget->addItem(QString::fromStdString(m.getTitle()));
+    for (size_t i = 0; i < listSize; i++) {
+        ui->listWidget->addItem(QString::fromStdString(movArr[i].getTitle()));
     }
     QString timer = "Time in Seconds: ";
     timer += QString::number(elapsed_seconds.count());
