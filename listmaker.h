@@ -12,8 +12,18 @@ class ListMaker : public QDialog
     Q_OBJECT
 
 public:
+    movie* movArr = {};
+    movie* unchangedArr = {};
+    int listSize = 0;
     explicit ListMaker(QWidget *parent = nullptr, movie movArr[] = {}, int listSize = 0);
     ~ListMaker();
+
+private slots:
+    void on_comboGenreBox_activated(int index);
+
+    void on_comboSortBox_activated(int index);
+
+    void on_comboAlgoBox_activated(int index);
 
 private:
     Ui::ListMaker *ui;

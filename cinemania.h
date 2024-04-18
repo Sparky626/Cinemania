@@ -1,6 +1,7 @@
 #ifndef CINEMANIA_H
 #define CINEMANIA_H
 #include "movie.h"
+#include <QListWidget>
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -20,9 +21,13 @@ public:
     ~CineMania();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_createListButton_clicked();
 
-    void on_pushButton_2_clicked();
+
+
+    void on_listMovieWidget_currentRowChanged(int currentRow);
+
+    void on_pushButton_clicked();
 
 private:
     Ui::CineMania *ui;

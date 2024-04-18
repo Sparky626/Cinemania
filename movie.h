@@ -30,6 +30,7 @@ class movie {
             this->genre = genre;
             this->rating = rating;
             this->numVotes = numVotes;
+            this->userRating = "0";
         }
         string getID(){
             return this->movieid;
