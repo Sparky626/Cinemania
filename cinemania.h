@@ -25,7 +25,8 @@ public:
     movie top10DramArr[10] = {};
     movie top10RomArr[10] = {};
     int listSize = 0;
-    CineMania(QWidget *parent = nullptr, movie movArr[] = {}, movie unchangedArr[] = {}, int listSize = 0);
+    vector<pair<string,vector<movie>>> lists = {};
+    CineMania(QWidget *parent = nullptr, movie movArr[] = {}, movie unchangedArr[] = {}, int listSize = 0, vector<pair<string,vector<movie>>> lists = {});
     ~CineMania();
 
 private slots:
@@ -33,21 +34,23 @@ private slots:
 
     void on_pushButton_clicked();
 
-    void on_listMovieWidget_itemActivated(QListWidgetItem *item);
+    void on_listMovieWidget_itemClicked(QListWidgetItem *item);
 
-    void on_listMovieWidget_2_itemActivated(QListWidgetItem *item);
+    void on_listMovieWidget_2_itemClicked(QListWidgetItem *item);
 
-    void on_listMovieWidget_3_itemActivated(QListWidgetItem *item);
+    void on_listMovieWidget_3_itemClicked(QListWidgetItem *item);
 
-    void on_listMovieWidget_4_itemActivated(QListWidgetItem *item);
+    void on_listMovieWidget_4_itemClicked(QListWidgetItem *item);
 
-    void on_listMovieWidget_5_itemActivated(QListWidgetItem *item);
+    void on_listMovieWidget_5_itemClicked(QListWidgetItem *item);
 
-    void on_listMovieWidget_6_itemActivated(QListWidgetItem *item);
+    void on_listMovieWidget_6_itemClicked(QListWidgetItem *item);
 
-    void on_listMovieWidget_7_itemActivated(QListWidgetItem *item);
+    void on_listMovieWidget_7_itemClicked(QListWidgetItem *item);
 
-    void on_listMovieWidget_8_itemActivated(QListWidgetItem *item);
+    void on_listMovieWidget_8_itemClicked(QListWidgetItem *item);
+
+    void on_showListsButton_clicked();
 
 private:
     Ui::CineMania *ui;

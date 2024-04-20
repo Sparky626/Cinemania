@@ -261,6 +261,12 @@
 			null
 		],
 		[
+			"C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/listdisplay.h",
+			"MU",
+			"EWIEGA46WW/moc_listdisplay.cpp",
+			null
+		],
+		[
 			"C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/listmaker.h",
 			"MU",
 			"EWIEGA46WW/moc_listmaker.cpp",
@@ -341,6 +347,11 @@
 	[
 		[
 			"C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/cinemania.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/listdisplay.cpp",
 			"MU",
 			null
 		],

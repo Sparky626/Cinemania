@@ -1,7 +1,9 @@
+#include "cinemania.h"
 #include "listmaker.h"
 #include "ui_listmaker.h"
-
-ListMaker::ListMaker(QWidget *parent, movie movArr[], int listSize)
+#include <iostream>
+#include <vector>
+ListMaker::ListMaker(QWidget *parent, movie movArr[], movie unchangedArr[], int listSize, vector<pair<string,vector<movie>>> lists)
     : QDialog(parent)
     , ui(new Ui::ListMaker)
 {
@@ -33,7 +35,7 @@ ListMaker::ListMaker(QWidget *parent, movie movArr[], int listSize)
     ui->comboAlgoBox->addItem("Merge");
     ui->comboAlgoBox->addItem("Quick");
     this->movArr = movArr;
-    this->unchangedArr = movArr;
+    this->unchangedArr = unchangedArr;
     this->listSize = listSize;
     QPixmap pix("Cinemania_Logo.png");
     ui->logo_label->setPixmap(pix);
@@ -297,15 +299,19 @@ void ListMaker::genreListFilter(int index){
     switch(index){
     case 0:
         ui->listMovieWidget->clear();
+        All.clear();
         for (size_t i = 0; i < listSize; i++) {
+            All.push_back(movArr[i]);
             string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
             ui->listMovieWidget->addItem(QString::fromStdString(text));
         }
         break;
     case 1:
         ui->listMovieWidget->clear();
+        Action.clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Action"){
+                Action.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
@@ -313,8 +319,10 @@ void ListMaker::genreListFilter(int index){
         break;
     case 2:
         ui->listMovieWidget->clear();
+        Adult.clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Adult"){
+                Adult.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
@@ -322,143 +330,175 @@ void ListMaker::genreListFilter(int index){
         break;
     case 3:
         ui->listMovieWidget->clear();
+        Adventure.clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Adventure"){
+                Adventure.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
         }
         break;
     case 4:
+        Animation.clear();
         ui->listMovieWidget->clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Animation"){
+                Animation.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
         }
         break;
     case 5:
+        Biography.clear();
         ui->listMovieWidget->clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Biography"){
+                Biography.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
         }
         break;
     case 6:
+        Comedy.clear();
         ui->listMovieWidget->clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Comedy"){
+                Comedy.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
         }
         break;
     case 7:
+        Crime.clear();
         ui->listMovieWidget->clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Crime"){
+                Crime.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
         }
         break;
     case 8:
+        Documentary.clear();
         ui->listMovieWidget->clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Documentary"){
+                Documentary.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
         }
         break;
     case 9:
+        Drama.clear();
         ui->listMovieWidget->clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Drama"){
+                Drama.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
         }
         break;
     case 10:
+        Family.clear();
         ui->listMovieWidget->clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Family"){
+                Family.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
         }
         break;
     case 11:
+        Fantasy.clear();
         ui->listMovieWidget->clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Fantasy"){
+                Fantasy.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
         }
         break;
     case 12:
+        FilmNoir.clear();
         ui->listMovieWidget->clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Film-Noir"){
+                FilmNoir.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
         }
         break;
     case 13:
+        Horror.clear();
         ui->listMovieWidget->clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Horror"){
+                Horror.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
         }
         break;
     case 14:
+        Musical.clear();
         ui->listMovieWidget->clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Musical"){
+                Musical.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
         }
         break;
     case 15:
+        Mystery.clear();
         ui->listMovieWidget->clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Mystery"){
+                Mystery.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
         }
         break;
     case 16:
+        Romance.clear();
         ui->listMovieWidget->clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Romance"){
+                Romance.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
         }
         break;
     case 17:
+        War.clear();
         ui->listMovieWidget->clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "War"){
+                War.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
         }
         break;
     case 18:
+        Western.clear();
         ui->listMovieWidget->clear();
         for (size_t i = 0; i < listSize; i++) {
             if(movArr[i].getGenre() == "Western"){
+                Western.push_back(movArr[i]);
                 string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
                 ui->listMovieWidget->addItem(QString::fromStdString(text));
             }
@@ -467,25 +507,15 @@ void ListMaker::genreListFilter(int index){
     }
 }
 
-void ListMaker::on_comboGenreBox_activated(int index)
-{
-
-
-}
-
-void ListMaker::on_comboSortBox_activated(int index)
-{
-
-}
-
-
-void ListMaker::on_comboAlgoBox_activated(int index)
-{
-
-}
 
 void ListMaker::on_sortPushButton_clicked()
 {
+    movie* clonedArr = new movie[this->listSize];
+    for (int i = 0; i < this->listSize; i++) {
+        clonedArr[i] = unchangedArr[i];
+    }
+    delete[] movArr;
+    this->movArr = clonedArr;
     chrono::duration<double> elapsed_seconds;
     chrono::time_point<std::chrono::system_clock> start, end;
     QString timer = "";
@@ -497,7 +527,6 @@ void ListMaker::on_sortPushButton_clicked()
         case 0:
             break;
         case 1:
-            movArr = unchangedArr;
             ui->listMovieWidget->clear();
             start = chrono::system_clock::now();
             mergeSortTitle(movArr, 0, listSize-1);
@@ -509,7 +538,6 @@ void ListMaker::on_sortPushButton_clicked()
             ui->timer->setText(timer);
             break;
         case 2:
-            movArr = unchangedArr;
             ui->listMovieWidget->clear();
             start = chrono::system_clock::now();
             mergeSortGenre(movArr, 0, listSize-1);
@@ -521,7 +549,6 @@ void ListMaker::on_sortPushButton_clicked()
             ui->timer->setText(timer);
             break;
         case 3:
-            movArr = unchangedArr;
             ui->listMovieWidget->clear();
             start = chrono::system_clock::now();
             mergeSortRating(movArr, 0, listSize-1);
@@ -535,11 +562,10 @@ void ListMaker::on_sortPushButton_clicked()
         }
         break;
     case 2:
-        switch (ui->comboAlgoBox->currentIndex()){
+        switch (ui->comboSortBox->currentIndex()){
         case 0:
             break;
         case 1:
-            movArr = unchangedArr;
             ui->listMovieWidget->clear();
             start = chrono::system_clock::now();
             quickSortTitle(movArr, 0, listSize-1);
@@ -551,7 +577,6 @@ void ListMaker::on_sortPushButton_clicked()
             ui->timer->setText(timer);
             break;
         case 2:
-            movArr = unchangedArr;
             ui->listMovieWidget->clear();
             start = chrono::system_clock::now();
             quickSortGenre(movArr, 0, listSize-1);
@@ -563,7 +588,6 @@ void ListMaker::on_sortPushButton_clicked()
             ui->timer->setText(timer);
             break;
         case 3:
-            movArr = unchangedArr;
             ui->listMovieWidget->clear();
             start = chrono::system_clock::now();
             quickSortRating(movArr, 0, listSize-1);
@@ -580,8 +604,122 @@ void ListMaker::on_sortPushButton_clicked()
 }
 
 
-void ListMaker::on_ListMaker_destroyed()
-{
 
+
+
+void ListMaker::on_saveListButton_clicked()
+{
+    pair<string, vector<movie>> cList;
+    cList.first = ui->listNameTextEdit->toPlainText().toStdString();
+    cList.second = this->currentList;
+    lists.push_back(cList);
+    this->currentList.clear();
+    ui->listNameTextEdit->clear();
+    ui->listUserWidget->clear();
+}
+
+
+
+void ListMaker::on_listMovieWidget_itemDoubleClicked(QListWidgetItem *item)
+{
+    int currentRow = ui->listMovieWidget->currentRow();
+    int index = ui->comboGenreBox->currentIndex();
+    switch(index){
+    case 0:
+        if(All.empty() == true){
+            ui->listUserWidget->addItem(QString::fromStdString(unchangedArr[currentRow].getTitle() + " -- User Rating: " + unchangedArr[currentRow].getUserRating()));
+            currentList.push_back(unchangedArr[currentRow]);
+        }
+        else{
+            ui->listUserWidget->addItem(QString::fromStdString(All[currentRow].getTitle() + " -- User Rating: " + All[currentRow].getUserRating()));
+            currentList.push_back(All[currentRow]);
+        }
+        break;
+    case 1:
+        ui->listUserWidget->addItem(QString::fromStdString(Action[currentRow].getTitle() + " -- User Rating: " + Action[currentRow].getUserRating()));
+        currentList.push_back(Action[currentRow]);
+        break;
+    case 2:
+        ui->listUserWidget->addItem(QString::fromStdString(Adult[currentRow].getTitle() +  " -- User Rating: " + Adult[currentRow].getUserRating()));
+        currentList.push_back(Adult[currentRow]);
+        break;
+    case 3:
+        ui->listUserWidget->addItem(QString::fromStdString(Adventure[currentRow].getTitle() + " -- User Rating: " + Adventure[currentRow].getUserRating()));
+        currentList.push_back(Adventure[currentRow]);
+        break;
+    case 4:
+        ui->listUserWidget->addItem(QString::fromStdString(Animation[currentRow].getTitle()));
+        currentList.push_back(Animation[currentRow]);
+        break;
+    case 5:
+        ui->listUserWidget->addItem(QString::fromStdString(Biography[currentRow].getTitle()));
+        currentList.push_back(Biography[currentRow]);
+        break;
+    case 6:
+        ui->listUserWidget->addItem(QString::fromStdString(Comedy[currentRow].getTitle()));
+        currentList.push_back(Comedy[currentRow]);
+        break;
+    case 7:
+        ui->listUserWidget->addItem(QString::fromStdString(Crime[currentRow].getTitle()));
+        currentList.push_back(Crime[currentRow]);
+        break;
+    case 8:
+        ui->listUserWidget->addItem(QString::fromStdString(Documentary[currentRow].getTitle()));
+        currentList.push_back(Documentary[currentRow]);
+        break;
+    case 9:
+        ui->listUserWidget->addItem(QString::fromStdString(Drama[currentRow].getTitle()));
+        currentList.push_back(Drama[currentRow]);
+        break;
+    case 10:
+        ui->listUserWidget->addItem(QString::fromStdString(Family[currentRow].getTitle()));
+        currentList.push_back(Family[currentRow]);
+        break;
+    case 11:
+        ui->listUserWidget->addItem(QString::fromStdString(Fantasy[currentRow].getTitle()));
+        currentList.push_back(Fantasy[currentRow]);
+        break;
+    case 12:
+        ui->listUserWidget->addItem(QString::fromStdString(FilmNoir[currentRow].getTitle()));
+        currentList.push_back(FilmNoir[currentRow]);
+        break;
+    case 13:
+        ui->listUserWidget->addItem(QString::fromStdString(Horror[currentRow].getTitle()));
+        currentList.push_back(Horror[currentRow]);
+        break;
+    case 14:
+        ui->listUserWidget->addItem(QString::fromStdString(Musical[currentRow].getTitle()));
+        currentList.push_back(Musical[currentRow]);
+        break;
+    case 15:
+        ui->listUserWidget->addItem(QString::fromStdString(Mystery[currentRow].getTitle()));
+        currentList.push_back(Mystery[currentRow]);
+        break;
+    case 16:
+        ui->listUserWidget->addItem(QString::fromStdString(Romance[currentRow].getTitle()));
+        currentList.push_back(Romance[currentRow]);
+        break;
+    case 17:
+        ui->listUserWidget->addItem(QString::fromStdString(War[currentRow].getTitle()));
+        currentList.push_back(War[currentRow]);
+        break;
+    case 18:
+        ui->listUserWidget->addItem(QString::fromStdString(Western[currentRow].getTitle()));
+        currentList.push_back(Western[currentRow]);
+        break;
+    }
+}
+
+
+
+void ListMaker::on_listUserWidget_itemDoubleClicked(QListWidgetItem *item)
+{
+    int currentRow = ui->listUserWidget->currentRow();
+    movie curMovie = currentList[currentRow];
+    auto it = ::find(currentList.begin(), currentList.end(), curMovie);
+    if (it != currentList.end()) {
+        currentList.erase(it);
+    }
+    ui->listUserWidget->model()->removeRow(currentRow);
 }
 

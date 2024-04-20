@@ -148,6 +148,7 @@ Report_48_autogen/timestamp: \
 	C:/Qt/6.7.0/mingw_64/include/QtGui/qwindowdefs_win.h \
 	C:/Qt/6.7.0/mingw_64/include/QtWidgets/QDialog \
 	C:/Qt/6.7.0/mingw_64/include/QtWidgets/QListWidget \
+	C:/Qt/6.7.0/mingw_64/include/QtWidgets/QListWidgetItem \
 	C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
 	C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
 	C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemview.h \
@@ -544,10 +545,13 @@ Report_48_autogen/timestamp: \
 	C:/Users/geogo/OneDrive/My\ Onedrive/UF\ Classes/Spring\ 2024/COP3530/Report_48/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Report_48_autogen/moc_predefs.h \
 	C:/Users/geogo/OneDrive/My\ Onedrive/UF\ Classes/Spring\ 2024/COP3530/Report_48/cinemania.cpp \
 	C:/Users/geogo/OneDrive/My\ Onedrive/UF\ Classes/Spring\ 2024/COP3530/Report_48/cinemania.h \
+	C:/Users/geogo/OneDrive/My\ Onedrive/UF\ Classes/Spring\ 2024/COP3530/Report_48/listdisplay.cpp \
+	C:/Users/geogo/OneDrive/My\ Onedrive/UF\ Classes/Spring\ 2024/COP3530/Report_48/listdisplay.h \
 	C:/Users/geogo/OneDrive/My\ Onedrive/UF\ Classes/Spring\ 2024/COP3530/Report_48/listmaker.cpp \
 	C:/Users/geogo/OneDrive/My\ Onedrive/UF\ Classes/Spring\ 2024/COP3530/Report_48/listmaker.h \
 	C:/Users/geogo/OneDrive/My\ Onedrive/UF\ Classes/Spring\ 2024/COP3530/Report_48/main.cpp \
 	C:/Users/geogo/OneDrive/My\ Onedrive/UF\ Classes/Spring\ 2024/COP3530/Report_48/movie.h \
 	C:/Users/geogo/OneDrive/My\ Onedrive/UF\ Classes/Spring\ 2024/COP3530/Report_48/cinemania.ui \
+	C:/Users/geogo/OneDrive/My\ Onedrive/UF\ Classes/Spring\ 2024/COP3530/Report_48/listdisplay.ui \
 	C:/Users/geogo/OneDrive/My\ Onedrive/UF\ Classes/Spring\ 2024/COP3530/Report_48/listmaker.ui \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

@@ -24,6 +24,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         listmaker.h listmaker.cpp listmaker.ui
+        listdisplay.h listdisplay.cpp listdisplay.ui
 
 
     )

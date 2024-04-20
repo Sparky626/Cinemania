@@ -34,6 +34,12 @@ class movie {
             this->userRating = "0";
             this->index = 0;
         }
+        bool operator==(const movie& m){
+            if (title == m.title){
+                return true;
+            }
+            return false;
+        }
         string getID(){
             return this->movieid;
         }

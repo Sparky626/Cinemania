@@ -81,6 +81,14 @@ build CMakeFiles/Report_48.dir/listmaker.cpp.obj: CXX_COMPILER__Report_48_unscan
   OBJECT_DIR = CMakeFiles\Report_48.dir
   OBJECT_FILE_DIR = CMakeFiles\Report_48.dir
 
+build CMakeFiles/Report_48.dir/listdisplay.cpp.obj: CXX_COMPILER__Report_48_unscanned_Debug C$:/Users/geogo/OneDrive/My$ Onedrive/UF$ Classes/Spring$ 2024/COP3530/Report_48/listdisplay.cpp || cmake_object_order_depends_target_Report_48
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\Report_48.dir\listdisplay.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -I"C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Report_48_autogen/include" -isystem C:/Qt/6.7.0/mingw_64/include/QtCore -isystem C:/Qt/6.7.0/mingw_64/include -isystem C:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.7.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.7.0/mingw_64/include/QtGui -isystem C:/VulkanSDK/1.3.280.0/Include
+  OBJECT_DIR = CMakeFiles\Report_48.dir
+  OBJECT_FILE_DIR = CMakeFiles\Report_48.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Report_48
@@ -89,7 +97,7 @@ build CMakeFiles/Report_48.dir/listmaker.cpp.obj: CXX_COMPILER__Report_48_unscan
 #############################################
 # Link the executable Report_48.exe
 
-build Report_48.exe: CXX_EXECUTABLE_LINKER__Report_48_Debug CMakeFiles/Report_48.dir/Report_48_autogen/mocs_compilation.cpp.obj CMakeFiles/Report_48.dir/main.cpp.obj CMakeFiles/Report_48.dir/cinemania.cpp.obj CMakeFiles/Report_48.dir/listmaker.cpp.obj | C$:/Qt/6.7.0/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.7.0/mingw_64/lib/libQt6Gui.a C$:/Qt/6.7.0/mingw_64/lib/libQt6Core.a C$:/Qt/6.7.0/mingw_64/lib/libQt6EntryPoint.a || Report_48_autogen Report_48_autogen_timestamp_deps
+build Report_48.exe: CXX_EXECUTABLE_LINKER__Report_48_Debug CMakeFiles/Report_48.dir/Report_48_autogen/mocs_compilation.cpp.obj CMakeFiles/Report_48.dir/main.cpp.obj CMakeFiles/Report_48.dir/cinemania.cpp.obj CMakeFiles/Report_48.dir/listmaker.cpp.obj CMakeFiles/Report_48.dir/listdisplay.cpp.obj | C$:/Qt/6.7.0/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.7.0/mingw_64/lib/libQt6Gui.a C$:/Qt/6.7.0/mingw_64/lib/libQt6Core.a C$:/Qt/6.7.0/mingw_64/lib/libQt6EntryPoint.a || Report_48_autogen Report_48_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = C:/Qt/6.7.0/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.7.0/mingw_64/lib/libQt6Gui.a  C:/Qt/6.7.0/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  C:/Qt/6.7.0/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -176,7 +184,7 @@ build Report_48_autogen_timestamp_deps: phony CMakeFiles/Report_48_autogen_times
 #############################################
 # Utility command for Report_48_autogen
 
-build Report_48_autogen: phony CMakeFiles/Report_48_autogen Report_48_autogen/include/ui_cinemania.h Report_48_autogen/include/ui_listmaker.h Report_48_autogen/timestamp Report_48_autogen/mocs_compilation.cpp Report_48_autogen_timestamp_deps
+build Report_48_autogen: phony CMakeFiles/Report_48_autogen Report_48_autogen/include/ui_cinemania.h Report_48_autogen/include/ui_listmaker.h Report_48_autogen/include/ui_listdisplay.h Report_48_autogen/timestamp Report_48_autogen/mocs_compilation.cpp Report_48_autogen_timestamp_deps
 
 
 #############################################
@@ -192,13 +200,13 @@ build Report_48_autogen/timestamp Report_48_autogen/mocs_compilation.cpp | ${cma
 #############################################
 # Phony custom command for CMakeFiles\Report_48_autogen_timestamp_deps
 
-build CMakeFiles/Report_48_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/Report_48_autogen_timestamp_deps: phony C$:/Qt/6.7.0/mingw_64/./bin/moc.exe C$:/Qt/6.7.0/mingw_64/lib/libQt6Core.a C$:/Qt/6.7.0/mingw_64/./bin/uic.exe C$:/Qt/6.7.0/mingw_64/lib/libQt6Widgets.a
+build CMakeFiles/Report_48_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/Report_48_autogen_timestamp_deps: phony C$:/Qt/6.7.0/mingw_64/./bin/moc.exe C$:/Qt/6.7.0/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.7.0/mingw_64/lib/libQt6Core.a C$:/Qt/6.7.0/mingw_64/./bin/uic.exe
 
 
 #############################################
 # Phony custom command for CMakeFiles\Report_48_autogen
 
-build CMakeFiles/Report_48_autogen Report_48_autogen/include/ui_cinemania.h Report_48_autogen/include/ui_listmaker.h | ${cmake_ninja_workdir}CMakeFiles/Report_48_autogen ${cmake_ninja_workdir}Report_48_autogen/include/ui_cinemania.h ${cmake_ninja_workdir}Report_48_autogen/include/ui_listmaker.h: phony Report_48_autogen/timestamp || Report_48_autogen_timestamp_deps
+build CMakeFiles/Report_48_autogen Report_48_autogen/include/ui_cinemania.h Report_48_autogen/include/ui_listmaker.h Report_48_autogen/include/ui_listdisplay.h | ${cmake_ninja_workdir}CMakeFiles/Report_48_autogen ${cmake_ninja_workdir}Report_48_autogen/include/ui_cinemania.h ${cmake_ninja_workdir}Report_48_autogen/include/ui_listmaker.h ${cmake_ninja_workdir}Report_48_autogen/include/ui_listdisplay.h: phony Report_48_autogen/timestamp || Report_48_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.
