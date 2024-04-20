@@ -1,20 +1,34 @@
 # ninja log v5
-15	636	7351802975426702	Report_48_autogen/timestamp	a17c7c5e32682505
-646	3156	7351803001326350	CMakeFiles/Report_48.dir/cinemania.cpp.obj	c12a63198097d87d
-15	636	7351802975426702	Report_48_autogen/mocs_compilation.cpp	a17c7c5e32682505
-3157	3411	7351803003828481	Report_48.exe	8e9054ffb919ac5d
-637	2495	7351802994709976	CMakeFiles/Report_48.dir/Report_48_autogen/mocs_compilation.cpp.obj	73fffda5ac406916
-15	636	7351802975426702	C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Report_48_autogen/timestamp	a17c7c5e32682505
-15	636	7351802975426702	C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Report_48_autogen/mocs_compilation.cpp	a17c7c5e32682505
-643	2667	7351802996430253	CMakeFiles/Report_48.dir/main.cpp.obj	5e76334ce4bfa617
-0	28	0	CMakeFiles/clean.additional	baedbe210acaa455
-28	52	0	clean	577b940aee94fbd7
+16	236	7352539202514218	Report_48_autogen/timestamp	a17c7c5e32682505
+244	2428	7352539224424336	CMakeFiles/Report_48.dir/cinemania.cpp.obj	c12a63198097d87d
+16	236	7352539202514218	Report_48_autogen/mocs_compilation.cpp	a17c7c5e32682505
+2428	2716	7352539227229733	Report_48.exe	8e9054ffb919ac5d
+597	2076	7352530280301257	CMakeFiles/Report_48.dir/Report_48_autogen/mocs_compilation.cpp.obj	73fffda5ac406916
+16	236	7352539202514218	C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Report_48_autogen/timestamp	a17c7c5e32682505
+16	236	7352539202514218	C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Report_48_autogen/mocs_compilation.cpp	a17c7c5e32682505
+602	2162	7352530281181552	CMakeFiles/Report_48.dir/main.cpp.obj	5e76334ce4bfa617
+2	40	0	CMakeFiles/clean.additional	baedbe210acaa455
+40	101	0	clean	577b940aee94fbd7
 666	2083	7349322897468225	CMakeFiles/Report_48.dir/cinemanialistmaker.cpp.obj	225d1fea584a7fc5
-640	2653	7351802996290274	CMakeFiles/Report_48.dir/listmaker.cpp.obj	d8786efb85aefcaa
-13	288	7351828860285212	Report_48_autogen/timestamp	a17c7c5e32682505
-13	288	7351828860285212	Report_48_autogen/mocs_compilation.cpp	a17c7c5e32682505
-13	288	7351828860285212	C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Report_48_autogen/timestamp	a17c7c5e32682505
-13	288	7351828860285212	C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Report_48_autogen/mocs_compilation.cpp	a17c7c5e32682505
-299	3225	7351828889572226	CMakeFiles/Report_48.dir/listmaker.cpp.obj	d8786efb85aefcaa
-303	3774	7351828895130434	CMakeFiles/Report_48.dir/cinemania.cpp.obj	c12a63198097d87d
-3774	4221	7351828899494940	Report_48.exe	8e9054ffb919ac5d
+247	1893	7352539219077783	CMakeFiles/Report_48.dir/listmaker.cpp.obj	d8786efb85aefcaa
+13	239	7352541187996365	Report_48_autogen/timestamp	a17c7c5e32682505
+13	239	7352541187996365	Report_48_autogen/mocs_compilation.cpp	a17c7c5e32682505
+13	239	7352541187996365	C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Report_48_autogen/timestamp	a17c7c5e32682505
+13	239	7352541187996365	C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Report_48_autogen/mocs_compilation.cpp	a17c7c5e32682505
+258	2317	7352541208791505	CMakeFiles/Report_48.dir/listmaker.cpp.obj	d8786efb85aefcaa
+255	2781	7352541213424846	CMakeFiles/Report_48.dir/cinemania.cpp.obj	c12a63198097d87d
+2783	3068	7352541216176288	Report_48.exe	8e9054ffb919ac5d
+10	218	7352543487807607	Report_48_autogen/timestamp	a17c7c5e32682505
+10	218	7352543487807607	Report_48_autogen/mocs_compilation.cpp	a17c7c5e32682505
+10	218	7352543487807607	C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Report_48_autogen/timestamp	a17c7c5e32682505
+10	218	7352543487807607	C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Report_48_autogen/mocs_compilation.cpp	a17c7c5e32682505
+225	3161	7352543517245512	CMakeFiles/Report_48.dir/listmaker.cpp.obj	d8786efb85aefcaa
+230	3575	7352543521382968	CMakeFiles/Report_48.dir/cinemania.cpp.obj	c12a63198097d87d
+3575	3900	7352543524577897	Report_48.exe	8e9054ffb919ac5d
+18	241	7352544146719143	Report_48_autogen/timestamp	a17c7c5e32682505
+18	241	7352544146719143	Report_48_autogen/mocs_compilation.cpp	a17c7c5e32682505
+18	241	7352544146719143	C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Report_48_autogen/timestamp	a17c7c5e32682505
+18	241	7352544146719143	C:/Users/geogo/OneDrive/My Onedrive/UF Classes/Spring 2024/COP3530/Report_48/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Report_48_autogen/mocs_compilation.cpp	a17c7c5e32682505
+250	1848	7352544162783232	CMakeFiles/Report_48.dir/listmaker.cpp.obj	d8786efb85aefcaa
+253	2418	7352544168496905	CMakeFiles/Report_48.dir/cinemania.cpp.obj	c12a63198097d87d
+2419	2649	7352544170753900	Report_48.exe	8e9054ffb919ac5d

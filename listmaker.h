@@ -25,8 +25,14 @@ private slots:
 
     void on_comboAlgoBox_activated(int index);
 
+    void on_sortPushButton_clicked();
+
+    void on_ListMaker_destroyed();
+
 private:
     Ui::ListMaker *ui;
+
+    void genreListFilter(int index);
 };
 
 #endif // LISTMAKER_H

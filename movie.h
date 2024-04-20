@@ -18,6 +18,7 @@ class movie {
         string rating;
         string numVotes;
         string userRating;
+        int index;
     public:
         movie(){
 
@@ -31,6 +32,7 @@ class movie {
             this->rating = rating;
             this->numVotes = numVotes;
             this->userRating = "0";
+            this->index = 0;
         }
         string getID(){
             return this->movieid;
@@ -58,6 +60,12 @@ class movie {
         }
         string getUserRating(){
             return this->userRating;
+        }
+        void setIndex(int index){
+            this->index = index;
+        }
+        int getIndex(){
+            return this->index;
         }
 };
 

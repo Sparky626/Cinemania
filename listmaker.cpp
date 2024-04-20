@@ -293,8 +293,7 @@ void mergeSortTitle (movie arr[], int const begin, int const end) {
     mergeTitle(arr, begin, mid, end);
 }
 
-void ListMaker::on_comboGenreBox_activated(int index)
-{
+void ListMaker::genreListFilter(int index){
     switch(index){
     case 0:
         ui->listMovieWidget->clear();
@@ -466,6 +465,11 @@ void ListMaker::on_comboGenreBox_activated(int index)
         }
         break;
     }
+}
+
+void ListMaker::on_comboGenreBox_activated(int index)
+{
+
 
 }
 
@@ -477,91 +481,57 @@ void ListMaker::on_comboSortBox_activated(int index)
 
 void ListMaker::on_comboAlgoBox_activated(int index)
 {
+
+}
+
+void ListMaker::on_sortPushButton_clicked()
+{
     chrono::duration<double> elapsed_seconds;
     chrono::time_point<std::chrono::system_clock> start, end;
     QString timer = "";
-    switch(index){
+    switch(ui->comboAlgoBox->currentIndex()){
     case 0:
         break;
     case 1:
-        switch (ui->comboAlgoBox->currentIndex()){
-            case 0:
-                break;
-            case 1:
-                movArr = unchangedArr;
-                ui->listMovieWidget->clear();
-                start = chrono::system_clock::now();
-                mergeSortTitle(movArr, 0, listSize-1);
-                end = chrono::system_clock::now();
-                elapsed_seconds = end - start;
-                if (ui->comboGenreBox->currentIndex() == 0){
-                    for (size_t i = 0; i < listSize; i++) {
-                        string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
-                        ui->listMovieWidget->addItem(QString::fromStdString(text));
-                    }
-                }
-                else{
-                    for (size_t i = 0; i < listSize; i++) {
-                        if (movArr[i].getGenre() == ui->comboGenreBox->itemData(ui->comboGenreBox->currentIndex()).toString().toStdString()){
-                            string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
-                            ui->listMovieWidget->addItem(QString::fromStdString(text));
-                        }
-                    }
-                }
-                timer = "Time in Seconds: ";
-                timer += QString::number(elapsed_seconds.count());
-                ui->timer->setText(timer);
-                break;
-            case 2:
-                movArr = unchangedArr;
-                ui->listMovieWidget->clear();
-                start = chrono::system_clock::now();
-                mergeSortGenre(movArr, 0, listSize-1);
-                end = chrono::system_clock::now();
-                elapsed_seconds = end - start;
-                if (ui->comboGenreBox->currentIndex() == 0){
-                    for (size_t i = 0; i < listSize; i++) {
-                        string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
-                        ui->listMovieWidget->addItem(QString::fromStdString(text));
-                    }
-                }
-                else{
-                    for (size_t i = 0; i < listSize; i++) {
-                        if (movArr[i].getGenre() == ui->comboGenreBox->itemData(ui->comboGenreBox->currentIndex()).toString().toStdString()){
-                            string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
-                            ui->listMovieWidget->addItem(QString::fromStdString(text));
-                        }
-                    }
-                }
-                timer = "Time in Seconds: ";
-                timer += QString::number(elapsed_seconds.count());
-                ui->timer->setText(timer);
-                break;
-            case 3:
-                movArr = unchangedArr;
-                ui->listMovieWidget->clear();
-                start = chrono::system_clock::now();
-                mergeSortRating(movArr, 0, listSize-1);
-                end = chrono::system_clock::now();
-                elapsed_seconds = end - start;
-                if (ui->comboGenreBox->currentIndex() == 0){
-                    for (size_t i = 0; i < listSize; i++) {
-                        string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
-                        ui->listMovieWidget->addItem(QString::fromStdString(text));
-                    }
-                }
-                else{
-                    for (size_t i = 0; i < listSize; i++) {
-                        if (movArr[i].getGenre() == ui->comboGenreBox->itemData(ui->comboGenreBox->currentIndex()).toString().toStdString()){
-                            string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
-                            ui->listMovieWidget->addItem(QString::fromStdString(text));
-                        }
-                    }
-                }
-                timer = "Time in Seconds: ";
-                timer += QString::number(elapsed_seconds.count());
-                ui->timer->setText(timer);
-                break;
+        switch (ui->comboSortBox->currentIndex()){
+        case 0:
+            break;
+        case 1:
+            movArr = unchangedArr;
+            ui->listMovieWidget->clear();
+            start = chrono::system_clock::now();
+            mergeSortTitle(movArr, 0, listSize-1);
+            end = chrono::system_clock::now();
+            elapsed_seconds = end - start;
+            genreListFilter(ui->comboGenreBox->currentIndex());
+            timer = "Time in Seconds: ";
+            timer += QString::number(elapsed_seconds.count());
+            ui->timer->setText(timer);
+            break;
+        case 2:
+            movArr = unchangedArr;
+            ui->listMovieWidget->clear();
+            start = chrono::system_clock::now();
+            mergeSortGenre(movArr, 0, listSize-1);
+            end = chrono::system_clock::now();
+            elapsed_seconds = end - start;
+            genreListFilter(ui->comboGenreBox->currentIndex());
+            timer = "Time in Seconds: ";
+            timer += QString::number(elapsed_seconds.count());
+            ui->timer->setText(timer);
+            break;
+        case 3:
+            movArr = unchangedArr;
+            ui->listMovieWidget->clear();
+            start = chrono::system_clock::now();
+            mergeSortRating(movArr, 0, listSize-1);
+            end = chrono::system_clock::now();
+            elapsed_seconds = end - start;
+            genreListFilter(ui->comboGenreBox->currentIndex());
+            timer = "Time in Seconds: ";
+            timer += QString::number(elapsed_seconds.count());
+            ui->timer->setText(timer);
+            break;
         }
         break;
     case 2:
@@ -575,20 +545,7 @@ void ListMaker::on_comboAlgoBox_activated(int index)
             quickSortTitle(movArr, 0, listSize-1);
             end = chrono::system_clock::now();
             elapsed_seconds = end - start;
-            if (ui->comboGenreBox->currentIndex() == 0){
-                for (size_t i = 0; i < listSize; i++) {
-                    string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
-                    ui->listMovieWidget->addItem(QString::fromStdString(text));
-                }
-            }
-            else{
-                for (size_t i = 0; i < listSize; i++) {
-                    if (movArr[i].getGenre() == ui->comboGenreBox->itemData(ui->comboGenreBox->currentIndex()).toString().toStdString()){
-                        string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
-                        ui->listMovieWidget->addItem(QString::fromStdString(text));
-                    }
-                }
-            }
+            genreListFilter(ui->comboGenreBox->currentIndex());
             timer = "Time in Seconds: ";
             timer += QString::number(elapsed_seconds.count());
             ui->timer->setText(timer);
@@ -600,20 +557,7 @@ void ListMaker::on_comboAlgoBox_activated(int index)
             quickSortGenre(movArr, 0, listSize-1);
             end = chrono::system_clock::now();
             elapsed_seconds = end - start;
-            if (ui->comboGenreBox->currentIndex() == 0){
-                for (size_t i = 0; i < listSize; i++) {
-                    string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
-                    ui->listMovieWidget->addItem(QString::fromStdString(text));
-                }
-            }
-            else{
-                for (size_t i = 0; i < listSize; i++) {
-                    if (movArr[i].getGenre() == ui->comboGenreBox->itemData(ui->comboGenreBox->currentIndex()).toString().toStdString()){
-                        string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
-                        ui->listMovieWidget->addItem(QString::fromStdString(text));
-                    }
-                }
-            }
+            genreListFilter(ui->comboGenreBox->currentIndex());
             timer = "Time in Seconds: ";
             timer += QString::number(elapsed_seconds.count());
             ui->timer->setText(timer);
@@ -625,20 +569,7 @@ void ListMaker::on_comboAlgoBox_activated(int index)
             quickSortRating(movArr, 0, listSize-1);
             end = chrono::system_clock::now();
             elapsed_seconds = end - start;
-            if (ui->comboGenreBox->currentIndex() == 0){
-                for (size_t i = 0; i < listSize; i++) {
-                    string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
-                    ui->listMovieWidget->addItem(QString::fromStdString(text));
-                }
-            }
-            else{
-                for (size_t i = 0; i < listSize; i++) {
-                    if (movArr[i].getGenre() == ui->comboGenreBox->itemData(ui->comboGenreBox->currentIndex()).toString().toStdString()){
-                        string text = movArr[i].getTitle() + " - Genre: " + movArr[i].getGenre() + " - Rating: " + movArr[i].getRating();
-                        ui->listMovieWidget->addItem(QString::fromStdString(text));
-                    }
-                }
-            }
+            genreListFilter(ui->comboGenreBox->currentIndex());
             timer = "Time in Seconds: ";
             timer += QString::number(elapsed_seconds.count());
             ui->timer->setText(timer);
@@ -647,3 +578,10 @@ void ListMaker::on_comboAlgoBox_activated(int index)
         break;
     }
 }
+
+
+void ListMaker::on_ListMaker_destroyed()
+{
+
+}
+
