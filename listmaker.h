@@ -1,3 +1,4 @@
+
 #ifndef LISTMAKER_H
 #define LISTMAKER_H
 #include "movie.h"
@@ -8,11 +9,12 @@ namespace Ui {
 class ListMaker;
 }
 
-class ListMaker : public QDialog
+class ListMaker : public QDialog // listmaker class is a QDialog subclass
 {
     Q_OBJECT
 
 public:
+    // public variables to store movie arrays, list of movies, different genres, etc
     movie* movArr = {};
     movie* unchangedArr = {};
     vector<movie> All;
@@ -34,16 +36,20 @@ public:
     vector<movie> Romance;
     vector<movie> War;
     vector<movie> Western;
-    vector<pair<string,vector<movie>>> lists;
-    vector<movie> currentList;
-    vector<pair<string,vector<movie>>> getLists(){
+
+    vector<pair<string,vector<movie>>> lists; // vector of pairs of list names and movies
+    vector<movie> currentList; // vector storing list of current movies being displayed
+    vector<pair<string,vector<movie>>> getLists(){ // getter to return lists vector
         return this->lists;
     }
     int listSize = 0;
+
+    // constructor and destructor
     explicit ListMaker(QWidget *parent = nullptr, movie movArr[] = {}, movie unchangedArr[] = {}, int listSize = 0, vector<pair<string,vector<movie>>> lists = {});
     ~ListMaker();
 
 private slots:
+               // private slots for button clicks and double clicks
 
     void on_sortPushButton_clicked();
 
@@ -54,9 +60,9 @@ private slots:
     void on_listUserWidget_itemDoubleClicked(QListWidgetItem *item);
 
 private:
-    Ui::ListMaker *ui;
+    Ui::ListMaker *ui; // pointer to ui object
 
-    void genreListFilter(int index);
+    void genreListFilter(int index); // private method for filtering lists by genre
 
 
 };

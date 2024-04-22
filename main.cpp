@@ -6,12 +6,16 @@
 
 int main(int argc, char *argv[])
 {
-    vector<movie> movieList;
+    vector<movie> movieList; // initial vector to hold movie data
     string myText;
     int position;
+
     fstream MyReadFile("MovieDataset.txt");
-    getline (MyReadFile, myText);
+    getline (MyReadFile, myText); // read first line to skip header
+
+    // loop through each line of text in the file
     while (getline (MyReadFile, myText)) {
+        // parsing to get movie attributes separated by tabs
         position = myText.find('\t');
         string movieid = myText.substr(0, position);
         myText = myText.substr(position + 1, myText.size());
@@ -40,16 +44,27 @@ int main(int argc, char *argv[])
         position = myText.find('\t');
         string numVotes = myText.substr(0, position);
         myText = myText.substr(position + 1, myText.size());
+
+        // create movie object that contains all attributes found
         movie CurrentMovie(movieid, title, year, runtime, genre, rating, numVotes);
-        movieList.push_back(CurrentMovie);
+        movieList.push_back(CurrentMovie); // put in vector
     }
-    MyReadFile.close();
+
+    MyReadFile.close(); // close input file
+
+    // create arrays to store movie objects
     movie* moviesArr = new movie[movieList.size()];
     movie* unchangedArr = new movie[movieList.size()];
+
+    // copy objects from initial vector into the new arrays
     copy(movieList.begin(), movieList.end(), moviesArr);
     copy(movieList.begin(), movieList.end(), unchangedArr);
-    QApplication a(argc, argv);
-    CineMania w(nullptr, moviesArr, unchangedArr, movieList.size());
-    w.show();
+
+    QApplication a(argc, argv); // create QApplication object
+
+    CineMania w(nullptr, moviesArr, unchangedArr, movieList.size()); // create cinemania object
+
+    w.show(); // display main window
+
     return a.exec();
 }

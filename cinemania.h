@@ -15,6 +15,7 @@ class CineMania : public QMainWindow
     Q_OBJECT
 
 public:
+    // public variables to store arrays of movie objects for top 10 in each category
     movie* movArr = {};
     movie* unchangedArr = {};
     movie top10MovArr[10] = {};
@@ -26,10 +27,13 @@ public:
     movie top10RomArr[10] = {};
     int listSize = 0;
     vector<pair<string,vector<movie>>> lists = {};
+
+    // constructor and destructor
     CineMania(QWidget *parent = nullptr, movie movArr[] = {}, movie unchangedArr[] = {}, int listSize = 0, vector<pair<string,vector<movie>>> lists = {});
     ~CineMania();
 
 private slots:
+               // private slots (functions called in response to a particular signal) for button clicked and item clicked signals
     void on_createListButton_clicked();
 
     void on_pushButton_clicked();
@@ -53,6 +57,6 @@ private slots:
     void on_showListsButton_clicked();
 
 private:
-    Ui::CineMania *ui;
+    Ui::CineMania *ui; // pointer to ui
 };
 #endif // CINEMANIA_H
