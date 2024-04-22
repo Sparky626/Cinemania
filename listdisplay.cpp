@@ -28,7 +28,7 @@ void listdisplay::on_listNameComboBox_activated(int index)
     ui->listWidget->clear(); // clear widget list every time a list name is selected in the combo box
     // iterate through movies in selected list and add them to the list widget
     if(this->lists[index-1].second.empty() != true){
-        for(movie& m : this->lists[0].second){
+        for(movie& m : this->lists[index-1].second){
             ui->listWidget->addItem(QString::fromStdString(m.getTitle() + + " - Genre: " + m.getGenre() + " - Rating: " + m.getRating() + " - User Rating: " + m.getUserRating()));
         }
     }
