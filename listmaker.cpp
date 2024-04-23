@@ -780,91 +780,91 @@ void ListMaker::on_listMovieWidget_itemDoubleClicked(QListWidgetItem *item)
 
         // case 4 = animation genre selected
     case 4:
-        ui->listUserWidget->addItem(QString::fromStdString(Animation[currentRow].getTitle()));
+        ui->listUserWidget->addItem(QString::fromStdString(Animation[currentRow].getTitle() + " -- User Rating: " + Animation[currentRow].getUserRating()));
         currentList.push_back(Animation[currentRow]);
         break;
 
         // case 5 = biography genre selected
     case 5:
-        ui->listUserWidget->addItem(QString::fromStdString(Biography[currentRow].getTitle()));
+        ui->listUserWidget->addItem(QString::fromStdString(Biography[currentRow].getTitle() + " -- User Rating: " + Biography[currentRow].getUserRating()));
         currentList.push_back(Biography[currentRow]);
         break;
 
         // case 6 = comedy genre selected
     case 6:
-        ui->listUserWidget->addItem(QString::fromStdString(Comedy[currentRow].getTitle()));
+        ui->listUserWidget->addItem(QString::fromStdString(Comedy[currentRow].getTitle()+ " -- User Rating: " + Comedy[currentRow].getUserRating()));
         currentList.push_back(Comedy[currentRow]);
         break;
 
         // case 7 = crime genre selected
     case 7:
-        ui->listUserWidget->addItem(QString::fromStdString(Crime[currentRow].getTitle()));
+        ui->listUserWidget->addItem(QString::fromStdString(Crime[currentRow].getTitle() + " -- User Rating: " + Crime[currentRow].getUserRating()));
         currentList.push_back(Crime[currentRow]);
         break;
 
         // case 8 = documentary genre selected
     case 8:
-        ui->listUserWidget->addItem(QString::fromStdString(Documentary[currentRow].getTitle()));
+        ui->listUserWidget->addItem(QString::fromStdString(Documentary[currentRow].getTitle() + " -- User Rating: " + Documentary[currentRow].getUserRating()));
         currentList.push_back(Documentary[currentRow]);
         break;
 
         // case 9 = drama genre selected
     case 9:
-        ui->listUserWidget->addItem(QString::fromStdString(Drama[currentRow].getTitle()));
+        ui->listUserWidget->addItem(QString::fromStdString(Drama[currentRow].getTitle()+ " -- User Rating: " + Drama[currentRow].getUserRating()));
         currentList.push_back(Drama[currentRow]);
         break;
 
         // case 10 = family genre selected
     case 10:
-        ui->listUserWidget->addItem(QString::fromStdString(Family[currentRow].getTitle()));
+        ui->listUserWidget->addItem(QString::fromStdString(Family[currentRow].getTitle()+ " -- User Rating: " + Family[currentRow].getUserRating()));
         currentList.push_back(Family[currentRow]);
         break;
 
         // case 11 = fantasy genre selected
     case 11:
-        ui->listUserWidget->addItem(QString::fromStdString(Fantasy[currentRow].getTitle()));
+        ui->listUserWidget->addItem(QString::fromStdString(Fantasy[currentRow].getTitle()+ " -- User Rating: " + Fantasy[currentRow].getUserRating()));
         currentList.push_back(Fantasy[currentRow]);
         break;
 
         // case 12 = film-noir genre selected
     case 12:
-        ui->listUserWidget->addItem(QString::fromStdString(FilmNoir[currentRow].getTitle()));
+        ui->listUserWidget->addItem(QString::fromStdString(FilmNoir[currentRow].getTitle()+ " -- User Rating: " + FilmNoir[currentRow].getUserRating()));
         currentList.push_back(FilmNoir[currentRow]);
         break;
 
         // case 13 = horror genre selected
     case 13:
-        ui->listUserWidget->addItem(QString::fromStdString(Horror[currentRow].getTitle()));
+        ui->listUserWidget->addItem(QString::fromStdString(Horror[currentRow].getTitle()+ " -- User Rating: " + Horror[currentRow].getUserRating()));
         currentList.push_back(Horror[currentRow]);
         break;
 
         // case 14 = musical genre selected
     case 14:
-        ui->listUserWidget->addItem(QString::fromStdString(Musical[currentRow].getTitle()));
+        ui->listUserWidget->addItem(QString::fromStdString(Musical[currentRow].getTitle()+ " -- User Rating: " + Musical[currentRow].getUserRating()));
         currentList.push_back(Musical[currentRow]);
         break;
 
         // case 15 = mystery genre selected
     case 15:
-        ui->listUserWidget->addItem(QString::fromStdString(Mystery[currentRow].getTitle()));
+        ui->listUserWidget->addItem(QString::fromStdString(Mystery[currentRow].getTitle()+ " -- User Rating: " + Mystery[currentRow].getUserRating()));
         currentList.push_back(Mystery[currentRow]);
         break;
 
         // case 16 = romance genre selected
     case 16:
-        ui->listUserWidget->addItem(QString::fromStdString(Romance[currentRow].getTitle()));
+        ui->listUserWidget->addItem(QString::fromStdString(Romance[currentRow].getTitle()+ " -- User Rating: " + Romance[currentRow].getUserRating()));
         currentList.push_back(Romance[currentRow]);
         break;
 
         // case 17 = war genre selected
     case 17:
-        ui->listUserWidget->addItem(QString::fromStdString(War[currentRow].getTitle()));
+        ui->listUserWidget->addItem(QString::fromStdString(War[currentRow].getTitle()+ " -- User Rating: " + War[currentRow].getUserRating()));
         currentList.push_back(War[currentRow]);
         break;
 
         // case 18 = western genre selected
     case 18:
-        ui->listUserWidget->addItem(QString::fromStdString(Western[currentRow].getTitle()));
+        ui->listUserWidget->addItem(QString::fromStdString(Western[currentRow].getTitle()+ " -- User Rating: " + Western[currentRow].getUserRating()));
         currentList.push_back(Western[currentRow]);
         break;
     }
