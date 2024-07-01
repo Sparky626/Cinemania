@@ -1,4 +1,4 @@
-# Report_48
+# Cinemania
 
 ## Steps for running the code:
 
